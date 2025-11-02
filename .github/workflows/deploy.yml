@@ -1,0 +1,36 @@
+name: Deploy Worker
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          # These secrets will be set as environment variables in the worker
+          secrets: |
+            POST_SECRET
+            AUTH_ENDPOINT
+        env:
+          POST_SECRET: ${{ secrets.POST_SECRET }}
+          AUTH_ENDPOINT: ${{ secrets.AUTH_ENDPOINT }}

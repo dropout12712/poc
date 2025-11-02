@@ -1,0 +1,39 @@
+name = "secure-storage-worker"
+main = "src/worker.ts"
+compatibility_date = "2025-11-01"
+
+# KV Namespace binding - the ID will be set in Cloudflare dashboard
+kv_namespaces = [
+  { binding = "ENCRYPTED_KV", preview_id = "test_namespace", id = "" }
+]
+
+# R2 bucket binding - bucket will be created automatically
+[[r2_buckets]]
+binding = "ENCRYPTED_R2"
+bucket_name = "encrypted-storage-${env}"  # Will append environment name
+
+# These vars will be set in GitHub secrets/Cloudflare dashboard
+[vars]
+ENV = "dev"  # Will be overridden in production
+
+# Secret variables - DO NOT SET VALUES HERE
+# Set these in Cloudflare dashboard or GitHub secrets:
+# - POST_SECRET
+# - AUTH_ENDPOINT
+# These will be available to the worker as env.POST_SECRET and env.AUTH_ENDPOINT
+
+# Rate limiting and other configurations
+[limits]
+max_request_size = "10MB"
+
+# Development/preview specific settings
+[env.dev]
+vars = { ENV = "dev" }
+
+# Production specific settings
+[env.production]
+vars = { ENV = "prod" }
+
+# For local development with wrangler, create a .dev.vars file with:
+# POST_SECRET=your_dev_secret
+# AUTH_ENDPOINT=http://localhost:8080/auth
