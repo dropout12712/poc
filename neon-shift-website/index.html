@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Shift - Official Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"> <!-- Optional: Add your own favicon -->
+    <!-- Optional: Meta tags for social media sharing -->
+    <meta name="description" content="Neon Shift: A speedrun-focused 2D platformer with a unique phantom shift mechanic. Download the game now!">
+    <meta property="og:title" content="Neon Shift Official Website">
+    <meta property="og:description" content="Run, jump, slide, and shift your way through dynamic levels in Neon Shift. Download the game and join the community!">
+    <!-- IMPORTANT: og:image should be a static image (JPG/PNG) -->
+    <meta property="og:image" content="/og-image.jpg"> <!-- Replace with your own static image for social media previews -->
+    <meta property="og:url" content="YOUR_WEBSITE_URL"> <!-- Replace with your actual website URL -->
+
+    <!-- Preload the main GIF logo -->
+    <link rel="preload" as="image" href="neon-shift-title.gif">
+
+    <!-- Optional: Link to a custom cyberpunk font if you have one -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Share+Tech+Mono&display=swap" rel="stylesheet"> -->
+    <!-- Or if self-hosting fonts: -->
+    <!-- <link rel="stylesheet" href="/fonts/fonts.css"> -->
+
+</head>
+<body>
+
+    <!-- Animated Background Element -->
+    <div class="animated-background"></div>
+
+    <!-- Site Navigation -->
+    <nav class="site-nav">
+        <div class="container">
+            <a href="index.html" class="nav-logo">Neon Shift</a> <!-- Basic site title link -->
+            <ul class="nav-links">
+                <li><a href="index.html#about-section">About Neon Shift</a></li>
+                <li><a href="index.html#gallery-section">Media</a></li>
+                <li><a href="index.html#download-section">Download</a></li>
+                <li><a href="index.html#discord-section">Discord</a></li>
+                <li><a href="about.html">About Us</a></li> <!-- Link to the new about page -->
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <!-- Using the GIF for the title banner -->
+            <img src="neon-shift-title.gif" alt="Neon Shift Logo" class="game-logo animate__fade-in">
+            <p class="subtitle animate__slide-up">Speedrun. Shift. Dominate.</p>
+            <!-- Button links to the download section -->
+            <a href="#download-section" class="main-button pulse-effect animate__zoom-in">Download Now!</a>
+        </div>
+    </header>
+
+    <section id="about-section" class="section animate__fade-in-section">
+        <div class="container">
+            <h2>About the Game</h2>
+            <p>Neon Shift is a speedrun-focused, side-scrolling platformer with a twist! Run, jump and slide your way through both official and player-created levels as fast as possible.</p>
+            <p>Then, shift into a phantom that can uncover new routes with a dash and chase yourself down to secure a spot on the leaderboard. Master precision platforming and strategic shifting to shave milliseconds off your time!</p>
+        </div>
+    </section>
+
+    <!-- Section: Images/Gallery -->
+    <section id="gallery-section" class="section animate__fade-in-section">
+        <div class="container">
+            <h2>Screenshots & Media</h2>
+            <div class="image-gallery">
+                <!-- Add your image tags here. Use local paths like /images/your-image-name.jpg -->
+                <img src="/images/screenshot1.jpg" alt="Neon Shift Screenshot 1" class="gallery-image">
+                <img src="/images/screenshot2.jpg" alt="Neon Shift Screenshot 2" class="gallery-image">
+                <img src="/images/screenshot3.jpg" alt="Neon Shift Screenshot 3" class="gallery-image">
+                <img src="/images/screenshot4.jpg" alt="Neon Shift Screenshot 4" class="gallery-image">
+                <!-- Add more image tags as needed, ensuring the files exist in the /images folder -->
+            </div>
+             <p class="gallery-note">Capture your best runs and share them with the community!</p>
+        </div>
+    </section>
+
+
+    <section id="download-section" class="section animate__fade-in-section">
+        <div class="container">
+            <h2>Download Neon Shift</h2>
+            <p>Experience the thrill of speedrunning and shifting! Download the latest version of Neon Shift for Windows and start playing today.</p>
+            <!-- Download link. Make sure NeonShift.zip is in the root folder -->
+            <a href="/NeonShift.zip" class="main-button download-button glitch-effect animate__zoom-in">Download Game (.zip)</a>
+            <p class="download-note">File size: [Add file size here, e.g., 85 MB]</p> <!-- Optional: Add file size -->
+            <p class="download-note">Requires Windows operating system.</p>
+            <p class="download-note">After downloading, unzip the file and run the .exe inside.</p>
+        </div>
+    </section>
+
+     <section id="features-section" class="section animate__fade-in-section">
+        <div class="container">
+            <h2>Key Features & Tags</h2>
+            <ul class="tags-list">
+                <li class="tag-item">Precision Platformer</li>
+                <li class="tag-item">2D Platformer</li>
+                <li class="tag-item">Runner</li>
+                <li class="tag-item">2D+</li>
+                <li class="tag-item">Speedrun Focus</li>
+                <li class="tag-item">Phantom Shift Mechanic</li>
+                <li class="tag-item">Custom Levels</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section: Discord -->
+    <section id="discord-section" class="section animate__fade-in-section">
+        <div class="container">
+            <h2>Join Our Community</h2>
+            <p>Connect with other players, share your speedruns, get level design tips, and chat with the developers on Discord!</p>
+            <!-- Link/Button to Discord -->
+            <!-- Replace YOUR_DISCORD_INVITE_CODE with your actual Discord invite code -->
+            <a href="https://discord.gg/YOUR_DISCORD_INVITE_CODE" target="_blank" rel="noopener noreferrer" class="main-button discord-button animate__zoom-in">
+                <!-- You could use an image here instead of button text -->
+                <!-- <img src="/images/join-discord.png" alt="Join our Discord"> -->
+                <i class="fab fa-discord"></i> Join Discord <!-- Optional: If you use a font-awesome Discord icon -->
+            </a>
+            <p class="discord-note">Requires a Discord account.</p>
+        </div>
+    </section>
+
+    <section id="developer-section" class="section animate__fade-in-section">
+        <div class="container">
+            <h2>Developer & Publisher</h2>
+            <p>Developed and Published by: <span class="developer-name">Keydoo Software</span></p>
+        </div>
+    </section>
+
+    <section id="steam-section" class="section animate__fade-in-section">
+        <div class="container">
+            <h2>Coming Soon to Steam! (Q2 2025)</h2>
+            <!-- Steam Store Widget - data-appid="2671600" -->
+            <iframe src="https://store.steampowered.com/widget/2671600/" frameborder="0" width="646" height="190" class="animate__zoom-in"></iframe>
+             <p class="steam-note">Wishlist on Steam to be notified when the game releases there!</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="current-year"></span> Keydoo Software. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Update copyright year automatically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Optional: Simple JS for fade-in effect on scroll (more complex UI)
+        // This requires a script.js file and the animate__ classes in CSS
+        // For simplicity with *direct upload*, we've added static CSS animations
+        // and classes assuming elements are visible on load or use anchor links.
+        // A true scroll-based animation needs JS event listeners.
+        // If you want scroll reveal, you'd add a script.js file and uncomment/add JS here.
+    </script>
+    <!-- Optional: Link to a JavaScript file for advanced effects -->
+    <!-- <script src="/js/script.js"></script> -->
+
+</body>
+</html>

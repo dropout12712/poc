@@ -1,0 +1,661 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-blue: #05071a;
+    --neon-pink: #ff0077;
+    --neon-teal: #00ffff;
+    --text-color: #eeeeee;
+    --border-glow-teal: rgba(0, 255, 255, 0.8);
+    --pink-glow: rgba(255, 0, 119, 0.8);
+    --section-border-color: rgba(0, 255, 255, 0.1);
+    --glitch-color1: var(--neon-teal);
+    --glitch-color2: var(--neon-pink);
+    --nav-height: 60px; /* Define navigation height */
+}
+
+/* --- Keyframe Animations --- */
+/* (Keep all keyframes like pulse, glitch-anim, fadeIn, slideUp, zoomIn, backgroundPan, linePulse from previous CSS) */
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 15px var(--pink-glow); }
+    50% { box-shadow: 0 0 35px var(--pink-glow), 0 0 40px var(--pink-glow); }
+    100% { box-shadow: 0 0 15px var(--pink-glow); }
+}
+
+@keyframes glitch-anim {
+    0% {
+        text-shadow: 0.05em 0 0 var(--glitch-color1), -0.05em -0.025em 0 var(--glitch-color2), -0.025em 0.05em 0 #333;
+        transform: translate(0px, 0px);
+    }
+    15% {
+         text-shadow: 0.05em 0 0 var(--glitch-color1), -0.05em -0.025em 0 var(--glitch-color2), -0.025em 0.05em 0 #333;
+         transform: translate(0px, 0px);
+    }
+    16% {
+        text-shadow: -0.05em -0.025em 0 var(--glitch-color1), 0.025em 0.025em 0 var(--glitch-color2), -0.05em -0.05em 0 #333;
+        transform: translate(-5px, 0px);
+    }
+    49% {
+        text-shadow: -0.05em -0.025em 0 var(--glitch-color1), 0.025em 0.025em 0 var(--glitch-color2), -0.05em -0.05em 0 #333;
+        transform: translate(-5px, 0px);
+    }
+     50% {
+        text-shadow: 0.025em 0.05em 0 var(--glitch-color1), 0.05em 0 0 var(--glitch-color2), 0 -0.05em 0 #333;
+         transform: translate(5px, 0px);
+    }
+     65% {
+        text-shadow: 0.025em 0.05em 0 var(--glitch-color1), 0.05em 0 0 var(--glitch-color2), 0 -0.05em 0 #333;
+        transform: translate(5px, 0px);
+    }
+     66% {
+        text-shadow: -0.025em 0 0 var(--glitch-color1), -0.05em -0.025em 0 var(--glitch-color2), 0.025em 0.05em 0 #333;
+        transform: translate(0px, -5px);
+    }
+     99% {
+        text-shadow: -0.025em 0 0 var(--glitch-color1), -0.05em -0.025em 0 var(--glitch-color2), 0.025em 0.05em 0 #333;
+        transform: translate(0px, -5px);
+    }
+    100% {
+         text-shadow: 0.05em 0 0 var(--glitch-color1), -0.05em -0.025em 0 var(--glitch-color2), -0.025em 0.05em 0 #333;
+         transform: translate(0px, 0px);
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes backgroundPan {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 200%; }
+}
+
+/* Optional: linePulse keyframe if you added it */
+/*
+@keyframes linePulse {
+     0% { box-shadow: 0 0 12px var(--border-glow-teal); }
+     50% { box-shadow: 0 0 20px var(--border-glow-teal), 0 0 25px var(--border-glow-teal); }
+     100% { box-shadow: 0 12px var(--border-glow-teal); }
+}
+*/
+
+/* --- Base Styles --- */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-blue);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    padding-top: var(--nav-height); /* Add padding to account for fixed nav */
+}
+
+/* Animated Background */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 255, 255, 0.05) 0%, rgba(255, 0, 119, 0.05) 20%, transparent 60%),
+                linear-gradient(45deg, rgba(11, 13, 29, 0.8) 0%, rgba(11, 13, 29, 0.6) 50%, rgba(11, 13, 29, 0.8) 100%);
+    background-size: 200% 200%;
+    animation: backgroundPan 20s infinite linear;
+    z-index: -2;
+}
+
+/* Optional: Add a background pattern or noise overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/images/noise.png') repeat;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Site Navigation --- */
+.site-nav {
+    position: fixed; /* Keep navigation visible */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background-color: rgba(11, 13, 29, 0.95); /* Semi-transparent dark background */
+    backdrop-filter: blur(5px); /* Optional blur effect */
+    z-index: 100; /* Ensure it's on top */
+    box-shadow: 0 2px 10px rgba(0, 255, 255, 0.1); /* Subtle glow below nav */
+    display: flex;
+    align-items: center;
+}
+
+.site-nav .container {
+    display: flex;
+    justify-content: space-between; /* Space out logo and links */
+    align-items: center;
+    padding: 0 20px; /* Adjust padding for nav container */
+}
+
+.nav-logo {
+    color: var(--neon-teal);
+    font-size: 1.8em; /* Larger logo text */
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 0 8px var(--border-glow-teal);
+    transition: text-shadow 0.3s ease;
+}
+
+.nav-logo:hover {
+    text-shadow: 0 0 15px var(--border-glow-teal);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Space between links */
+}
+
+.nav-links li a {
+    color: var(--text-color);
+    font-size: 1.1em;
+    text-decoration: none;
+    padding: 5px 0; /* Padding for hover effect */
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Underline hover effect for nav links */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--neon-pink);
+    transform: scaleX(0); /* Start hidden */
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--neon-pink);
+}
+
+.nav-links li a:hover::after {
+    transform: scaleX(1); /* Scale up on hover */
+    transform-origin: bottom left;
+}
+
+
+/* --- Page Header (for About page) --- */
+.page-header {
+    padding-top: 120px; /* More space below fixed nav */
+    padding-bottom: 60px;
+    /* Remove grid pattern or alternate background if desired */
+    background: none; /* Example: remove grid */
+}
+.about-page .page-header { /* Specific style for about page header */
+    background-color: rgba(255, 0, 119, 0.03); /* Very subtle pink background */
+}
+
+
+.page-header h1 {
+    font-size: 4em; /* Larger main heading */
+    color: var(--neon-teal);
+    text-shadow: 0 0 20px var(--border-glow-teal);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+
+/* --- Hero Section (main page) --- */
+/* Keep hero section styles from previous CSS */
+.hero-section {
+    text-align: center;
+    padding: 120px 20px 80px; /* More top padding, less bottom */
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, rgba(5, 7, 26, 0.8) 0%, transparent 50%, rgba(5, 7, 26, 0.8) 100%);
+}
+
+.game-logo { /* Style for the GIF logo */
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto 40px;
+    filter: drop-shadow(0 0 20px var(--neon-pink));
+    position: relative;
+    z-index: 2;
+}
+
+.subtitle { /* Style for the subtitle in Hero and Page Header */
+    font-size: 2em;
+    color: var(--neon-teal);
+    text-shadow: 0 0 15px var(--border-glow-teal);
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+/* Adjust subtitle margin for page header */
+.page-header .subtitle {
+    margin-bottom: 0;
+    font-size: 1.5em;
+    color: var(--text-color);
+    text-shadow: none;
+    opacity: 0.8;
+}
+
+
+/* --- Main Button Style --- */
+/* Keep main-button, pulse-effect, glitch-effect, discord-button styles from previous CSS */
+.main-button {
+    display: inline-block;
+    background-color: var(--neon-pink);
+    color: var(--dark-blue);
+    font-size: 1.8em;
+    padding: 20px 50px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: 2px solid var(--neon-pink);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    margin-top: 20px;
+}
+
+.main-button.pulse-effect { animation: pulse 2s infinite ease-in-out; }
+
+.main-button.glitch-effect {
+     background: var(--neon-teal);
+     color: var(--dark-blue);
+     border-color: var(--neon-teal);
+     animation: glitch-anim 1.5s infinite linear alternate;
+     text-shadow: none;
+     overflow: visible;
+}
+.main-button.glitch-effect:hover {
+     background-color: #33ffff;
+     box-shadow: 0 8px 30px var(--border-glow-teal);
+     animation: none;
+}
+
+.main-button:hover {
+    background-color: #ff3399;
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px var(--pink-glow);
+}
+.main-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 20px rgba(255, 0, 119, 0.9);
+}
+
+.discord-button {
+   background-color: #5865F2;
+   color: #ffffff;
+   border-color: #5865F2;
+   box-shadow: 0 0 15px rgba(88, 101, 242, 0.6);
+}
+.discord-button:hover {
+   background-color: #7289da;
+   box-shadow: 0 12px 30px rgba(88, 101, 242, 0.9);
+}
+.discord-button:active {
+    box-shadow: 0 4px 20px rgba(88, 101, 242, 1);
+}
+.discord-button i {
+    margin-right: 10px;
+}
+
+
+/* --- General Section Styling --- */
+/* Keep general section styles, h2, p, etc. from previous CSS */
+.section {
+    padding: 100px 0;
+    border-bottom: 2px solid var(--section-border-color);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(to right, transparent 98%, rgba(0, 255, 255, 0.05) 98%),
+        linear-gradient(to bottom, transparent 98%, rgba(0, 255, 255, 0.05) 98%);
+    background-size: 30px 30px;
+    background-color: rgba(11, 13, 29, 0.2);
+}
+
+.section:nth-child(odd) {
+    background-color: rgba(255, 0, 119, 0.02);
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.section h2 {
+    font-size: 3.5em;
+    color: var(--neon-pink);
+    text-shadow: 0 0 20px var(--pink-glow);
+    margin-bottom: 60px;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section h2::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 5px;
+    background: linear-gradient(to right, transparent, var(--neon-teal), transparent);
+    margin: 20px auto 0;
+    box-shadow: 0 0 12px var(--border-glow-teal);
+}
+
+.section p {
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    color: #cccccc;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+}
+
+/* Animation classes (no change) */
+.animate__fade-in { animation: fadeIn 1s ease-out; }
+.animate__slide-up { animation: slideUp 1s ease-out; }
+.animate__zoom-in { animation: zoomIn 0.8s ease-out; }
+.animate__fade-in-section { animation: fadeIn 1.2s ease-out; }
+
+
+/* --- Image Gallery Section --- */
+/* Keep gallery styles from previous CSS */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    padding: 0 10px;
+}
+
+.gallery-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 3px solid var(--neon-teal);
+    box-shadow: 0 0 18px var(--border-glow-teal);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    filter: brightness(0.8) contrast(1.1);
+}
+
+.gallery-image:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 30px var(--border-glow-teal), 0 0 40px var(--border-glow-teal);
+    filter: brightness(1) contrast(1.2);
+}
+
+.gallery-note {
+     margin-top: 40px;
+     font-style: italic;
+     color: #aaaaaa;
+     font-size: 1.1em;
+}
+
+
+/* --- Download Section Specific Notes --- */
+.download-note {
+    margin-top: 15px;
+    font-style: normal;
+    color: #bbbbbb;
+    font-size: 1.1em;
+}
+
+/* --- Tags List --- */
+/* Keep tags list styles from previous CSS */
+.tags-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.tag-item {
+    background-color: rgba(0, 255, 255, 0.15);
+    color: var(--neon-teal);
+    border: 2px solid var(--neon-teal);
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.tag-item:hover {
+     background-color: rgba(0, 255, 255, 0.3);
+     box-shadow: 0 0 15px var(--border-glow-teal);
+     transform: translateY(-3px);
+}
+
+/* --- Developer Info --- */
+/* Keep developer info styles from previous CSS */
+.developer-name {
+    color: var(--neon-pink);
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--pink-glow);
+}
+
+/* --- Steam Section --- */
+/* Keep Steam section styles from previous CSS */
+.steam-section {
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+.steam-section iframe {
+    display: block;
+    margin: 50px auto;
+    max-width: 100%;
+    height: 190px;
+    border: 3px solid var(--neon-teal);
+    box-shadow: 0 0 25px var(--border-glow-teal);
+    background-color: #111;
+    border-radius: 5px;
+}
+
+.steam-note {
+     font-size: 1.1em;
+     color: #bbb;
+     margin-top: 15px;
+}
+
+/* --- Footer --- */
+/* Keep footer styles from previous CSS */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #03040e;
+    font-size: 1em;
+    color: #444;
+}
+
+
+/* --- About Page Specific Styles --- */
+
+/* Style for the team members container */
+.team-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for team members */
+    gap: 40px; /* Space between members */
+    margin-top: 50px;
+}
+
+.team-member {
+    background-color: rgba(255, 0, 119, 0.05); /* Subtle pink background */
+    border: 2px solid var(--neon-pink); /* Pink border */
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255, 0, 119, 0.4); /* Pink glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px); /* Lift on hover */
+    box-shadow: 0 15px 30px rgba(255, 0, 119, 0.7); /* Stronger glow on hover */
+}
+
+.team-photo {
+    width: 150px; /* Size of team photos */
+    height: 150px;
+    border-radius: 50%; /* Make photos round */
+    object-fit: cover; /* Ensure photo fills the circle */
+    border: 3px solid var(--neon-teal); /* Teal border around photos */
+    box-shadow: 0 0 10px var(--border-glow-teal); /* Teal glow */
+    margin-bottom: 20px;
+}
+
+.team-member h3 {
+    font-size: 1.8em; /* Name font size */
+    color: var(--neon-teal);
+    text-shadow: 0 0 8px var(--border-glow-teal);
+    margin-bottom: 5px;
+}
+
+.team-member .role {
+    font-size: 1.2em; /* Role font size */
+    color: var(--neon-pink);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.team-member p {
+    font-size: 1em; /* Description font size */
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+/* Optional: Style for text links (like email in contact section) */
+.text-link {
+    color: var(--neon-teal);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--neon-teal);
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.text-link:hover {
+    color: var(--neon-pink);
+    border-color: var(--neon-pink);
+}
+
+
+/* --- Responsiveness --- */
+/* Keep existing responsiveness rules and add/adjust as needed */
+@media (max-width: 992px) {
+    .container { max-width: 90%; }
+    .image-gallery { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .team-members { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+}
+
+
+@media (max-width: 768px) {
+    body { padding-top: calc(var(--nav-height) + 10px); } /* Adjust padding for wrapped nav */
+    .site-nav .container { flex-direction: column; padding: 10px 20px; } /* Stack nav items */
+    .site-nav { height: auto; padding-bottom: 10px; } /* Auto height for stacked nav */
+    .nav-logo { margin-bottom: 10px; font-size: 1.6em; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px 20px; } /* Wrap nav links */
+    .nav-links li a { font-size: 1em; }
+
+
+    .hero-section { padding: 80px 20px 60px; min-height: 80vh; }
+    .game-logo { max-width: 100%; }
+    .subtitle { font-size: 1.6em; margin-bottom: 40px; }
+    .page-header { padding-top: 100px; padding-bottom: 40px; }
+     .page-header h1 { font-size: 3em; }
+     .page-header .subtitle { font-size: 1.3em; }
+    .main-button { font-size: 1.5em; padding: 15px 35px; }
+    .section { padding: 60px 0; }
+    .section h2 { font-size: 2.5em; margin-bottom: 40px; }
+    .section h2::after { width: 100px; }
+    .section p { font-size: 1.1em; }
+    .image-gallery { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; }
+    .tags-list { margin-top: 30px; gap: 10px; }
+    .tag-item { font-size: 1em; padding: 8px 20px; }
+    .steam-section iframe { width: 100%; margin: 30px auto; }
+    .steam-section { padding-bottom: 60px; }
+    footer { padding: 30px 20px; }
+
+     .team-members { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+     .team-member { padding: 20px; }
+     .team-photo { width: 120px; height: 120px; }
+     .team-member h3 { font-size: 1.5em; }
+     .team-member .role { font-size: 1.1em; }
+     .team-member p { font-size: 0.95em; }
+}
+
+@media (max-width: 480px) {
+     .nav-links { gap: 10px 15px; }
+     .nav-links li a { font-size: 0.9em; }
+
+     .hero-section { padding-top: 60px; }
+     .game-logo { margin-bottom: 30px; }
+    .subtitle { font-size: 1.4em; margin-bottom: 30px; }
+    .page-header h1 { font-size: 2.5em; }
+    .main-button { font-size: 1.3em; padding: 12px 25px; }
+    .section h2 { font-size: 2em; }
+     .section h2::after { width: 80px; margin-top: 10px; }
+     .image-gallery { gap: 10px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+     .tag-item { font-size: 0.9em; padding: 6px 15px; }
+
+      .team-members { grid-template-columns: 1fr; gap: 30px; } /* Stack team members */
+      .team-photo { width: 100px; height: 100px; }
+      .team-member h3 { font-size: 1.4em; }
+      .team-member .role { font-size: 1em; }
+      .team-member p { font-size: 0.9em; }
+}

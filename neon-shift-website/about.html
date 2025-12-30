@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Keydoo Software</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"> <!-- Optional: Add your own favicon -->
+    <meta name="description" content="Learn more about Keydoo Software, the developer of Neon Shift.">
+
+    <!-- Optional: Meta tags for social media sharing for this page -->
+    <meta property="og:title" content="About Keydoo Software">
+    <meta property="og:description" content="Discover the team behind Neon Shift and our passion for creating unique gaming experiences.">
+    <meta property="og:image" content="/og-image.jpg"> <!-- Use a relevant image -->
+    <meta property="og:url" content="YOUR_WEBSITE_URL/about.html"> <!-- Replace with your actual URL -->
+
+    <!-- Optional: Link to custom font if used on the main page -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Share+Tech+Mono&display=swap" rel="stylesheet"> -->
+    <!-- Or if self-hosting fonts: -->
+    <!-- <link rel="stylesheet" href="/fonts/fonts.css"> -->
+
+</head>
+<body class="about-page"> <!-- Add a class to body for potential page-specific styling -->
+
+    <!-- Animated Background Element -->
+    <div class="animated-background"></div>
+
+    <!-- Site Navigation -->
+    <nav class="site-nav">
+        <div class="container">
+            <a href="index.html" class="nav-logo">Neon Shift</a> <!-- Basic site title link -->
+             <ul class="nav-links">
+                <li><a href="index.html#about-section">About Neon Shift</a></li>
+                <li><a href="index.html#gallery-section">Media</a></li>
+                <li><a href="index.html#download-section">Download</a></li>
+                <li><a href="index.html#discord-section">Discord</a></li>
+                <li><a href="about.html">About Us</a></li> <!-- Link to this page -->
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header section"> <!-- Use section styling for padding etc. -->
+         <div class="container">
+              <h1>About Keydoo Software</h1> <!-- Main heading for the page -->
+              <p class="subtitle">Crafting unique gaming experiences.</p>
+         </div>
+    </header>
+
+
+    <section id="company-intro" class="section animate__fade-in-section">
+        <div class="container">
+            <h2>We Are Keydoo Software</h2>
+            <p>Keydoo Software is an independent game development studio dedicated to creating unique, player-centric gaming experiences. Our focus is on innovative mechanics, engaging gameplay, and building strong communities around our titles.</p>
+            <p>Founded on a passion for games that challenge and delight, we strive to push creative boundaries and deliver polished, enjoyable products. Neon Shift is our debut title, showcasing our commitment to precision design and community interaction through features like player-created levels.</p>
+        </div>
+    </section>
+
+    <section id="our-team" class="section animate__fade-in-section">
+         <div class="container">
+              <h2>Our Team</h2>
+              <div class="team-members">
+                   <!-- Team Member 1: Charlie -->
+                   <div class="team-member">
+                        <img src="https://www.keydoo-software.com/about/photos/charlie.png" alt="Charlie - Developer" class="team-photo">
+                        <h3>Charlie</h3>
+                        <p class="role">Developer</p>
+                        <p>Charlie is the lead developer and visionary behind Neon Shift. With a background in software engineering and a deep love for platformers, he focuses on bringing the game's core mechanics to life.</p>
+                   </div>
+                   <!-- Team Member 2: Laurie -->
+                   <div class="team-member">
+                        <img src="https://www.keydoo-software.com/about/photos/laurie.png" alt="Laurie - Design & Community" class="team-photo">
+                         <h3>Laurie</h3>
+                        <p class="role">Design & Community</p>
+                        <p>Laurie handles game design elements, level curation, and building connections with the Neon Shift community. They are passionate about creating spaces for players to share and collaborate.</p>
+                   </div>
+                   <!-- Add more team members here following the same structure -->
+              </div>
+         </div>
+    </section>
+
+
+    <!-- Optional: Add other relevant sections like Contact, Press Kit, etc. -->
+    <!-- <section id="contact" class="section animate__fade-in-section">
+         <div class="container">
+             <h2>Get In Touch</h2>
+             <p>Have questions? Want to provide feedback? Reach out to us!</p>
+              <p>Email: <a href="mailto:contact@keydoo-software.com" class="text-link">contact@keydoo-software.com</a></p>
+         </div>
+    </section> -->
+
+
+    <footer>
+        <div class="container">
+            <p>© <span id="current-year-about"></span> Keydoo Software. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Update copyright year automatically for this page
+        document.getElementById('current-year-about').textContent = new Date().getFullYear();
+    </script>
+     <!-- Optional: Link to a JavaScript file for advanced effects -->
+     <!-- <script src="/js/script.js"></script> -->
+
+</body>
+</html>
