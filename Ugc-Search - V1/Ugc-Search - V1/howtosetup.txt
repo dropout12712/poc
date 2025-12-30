@@ -1,0 +1,21 @@
+How to use UGC-Search 101
+
+Run Setup.bat to install python and required librarys
+Open command prompt ( in admin preferably )
+Copy current directory 
+CD currentdirectory
+python main.py
+
+______________________
+
+For Reviewer
+Get github PAT TOKEN 
+Input all of the config info
+CD reviewer
+python main.py
+
+
+Made by critical
+
+
+dedcritical on discord for support
