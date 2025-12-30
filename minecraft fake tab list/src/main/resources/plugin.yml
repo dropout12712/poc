@@ -1,0 +1,21 @@
+# The name of your plugin
+name: FakeTab
+# The version will be automatically replaced by Gradle from the build.gradle file
+version: '${project.version}'
+# The main class that extends JavaPlugin
+main: com.example.faketab.FakeTabPlugin
+# The API version your plugin is built against
+api-version: '1.21'
+# Your name
+author: YourName
+# A brief description of what your plugin does
+description: A utility to add fake players to the tab list for stress testing.
+# This is CRUCIAL. The server will not load this plugin if ProtocolLib is not found.
+depend: [ProtocolLib]
+
+commands:
+  faketab:
+    description: "Adds or removes fake players to/from the tab list."
+    usage: "/<command> <add|addbulk|remove|clear> [name/amount]"
+    # It's good practice to permission-protect administrative commands
+    permission: faketab.admin
