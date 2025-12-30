@@ -1,2 +1,2 @@
 # poc
-proof of concept
+random projects i had saved in my projects folder
